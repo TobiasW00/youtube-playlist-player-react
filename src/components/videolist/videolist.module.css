@@ -1,0 +1,42 @@
+.html
+{
+    font-size: 16px;
+}
+.videoboxdiv
+{
+    border: 3px solid black;
+    display: inline-block;
+    width:320px;
+    margin:10px;
+    height:380px;
+    border-radius: 10px;
+    overflow-y:hidden;
+    overflow-x:hidden;
+    text-align: center;
+}
+.header
+{
+    color:white;
+    background: #FC6000;
+    margin:0;
+    border-bottom: 3px solid black;
+    padding:0;
+    width: 100%;
+    height:90px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.header h2
+{
+    font-size:1.3rem;
+    font-weight: 300;
+    margin:5px;
+}
+.videodescription
+{
+    text-align: left;
+    padding:5px;
+    cursor: pointer;
+}

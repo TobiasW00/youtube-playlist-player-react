@@ -1,25 +1,24 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-
+import YouTube from './api/youtube';
+import VideoList from './components/videolist/videolist';
 class App extends Component {
+  constructor()
+  {
+    super();
+    this.state = {items:[]};
+    YouTube.getYouTubeVideos().then((youtuberesult)=>{this.setState({items:youtuberesult.items.slice(0,youtuberesult.items.length-1)});return youtuberesult;}).then((result) =>
+        {
+          let cannelinfo = result.items[result.items.length-1];
+          window.document.title = cannelinfo.snippet.title + " - " + cannelinfo.snippet.description;
+        }
+    );
+    
+  }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <VideoList items={this.state.items} />
       </div>
     );
   }
